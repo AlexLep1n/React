@@ -1,4 +1,5 @@
 import "./App.css";
+import CommentsList from "./components/CommentsList/CommentsList";
 import Message from "./components/Message/Message";
 
 export default function App() {
@@ -9,6 +10,7 @@ export default function App() {
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam,
         ducimus.
       </Message>
+      <CommentsList></CommentsList>
     </>
   );
 }
