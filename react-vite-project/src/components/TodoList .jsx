@@ -1,4 +1,5 @@
-import { TextField, List, ListItem, Button } from "@mui/material";
+import { TextField, List, ListItem, Button, IconButton } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import { toDoItems } from "../data";
 
@@ -18,6 +19,14 @@ export default function TodoList() {
     setNewToDo("");
   }
 
+  function deleteToDo(e) {
+    const toDoTitle = e.target
+      .closest("li")
+      .querySelector("h4")
+      .textContent.replace(":", "");
+    setToDoList([...toDoList.filter((toDo) => toDo.title !== toDoTitle)]);
+  }
+
   return (
     <>
       <TextField
@@ -31,12 +40,15 @@ export default function TodoList() {
           }
         }}
       />
-      <Button variant="contained" onClick={() => addNewToDo()}>
+      <Button variant="contained" onClick={addNewToDo}>
         Add new toDo
       </Button>
       <List>
         {toDoList.map((toDo) => (
           <ListItem key={toDo.id}>
+            <IconButton onClick={deleteToDo}>
+              <DeleteIcon sx={{ color: "black" }}></DeleteIcon>
+            </IconButton>
             <h4 style={{ marginRight: "10px" }}>{toDo.title}:</h4>
             <p>{toDo.text}</p>
           </ListItem>
