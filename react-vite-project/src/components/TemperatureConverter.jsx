@@ -15,7 +15,7 @@ export default function TemperatureConverter() {
   }
 
   return (
-    <>
+    <div>
       <TextField
         variant="outlined"
         label="Temperature in C"
@@ -47,6 +47,6 @@ export default function TemperatureConverter() {
           startAdornment: <InputAdornment position="start">F</InputAdornment>,
         }}
       />
-    </>
+    </div>
   );
 }

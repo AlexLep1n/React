@@ -7,3 +7,9 @@ export const commentsData = [
   { id: 5, text: "Это пятый комментарий" },
   { id: 6, text: "Это шестой комментарий" },
 ];
+
+export const toDoItems = [
+  { id: 1, title: "ToDo title 1", text: "Это первый toDo" },
+  { id: 2, title: "ToDo title 2", text: "Это второй toDo" },
+  { id: 3, title: "ToDo title 3", text: "Это третий toDo" },
+];
