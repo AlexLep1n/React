@@ -1,7 +1,7 @@
 import { TextField, List, ListItem, Button, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
-import { toDoItems } from "../data";
+import { toDoItems } from "../../data";
 
 export default function TodoList() {
   const [toDoList, setToDoList] = useState([...toDoItems]);
