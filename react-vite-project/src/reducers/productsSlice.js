@@ -32,7 +32,7 @@ export const productsSlice = createSlice({
       if (state.array.some((product) => product.id === newProduct.id)) {
         return;
       }
-      state.array.push(newProduct);
+      state.array.push({ ...newProduct, id: state.array.length + 1 });
     },
     deleteProduct: (state, { payload: deletedProduct }) => {
       state.array = state.array.filter(
@@ -40,18 +40,17 @@ export const productsSlice = createSlice({
       );
     },
     changeAvailable: (state, { payload: editedProduct }) => {
-      state.array.map((product) => {
-        if (product.name === editedProduct.name) {
-          return product.available === "yes"
+      state.array.forEach((product) => {
+        if (product.id === editedProduct.id) {
+          product.available === "yes"
             ? (product.available = "no")
             : (product.available = "yes");
         }
-        return product;
       });
     },
     updateProduct: (state, { payload: updatedProduct }) => {
-      state.array.map((product) =>
-        product.id === updatedProduct.id ? (product = updatedProduct) : product
+      state.array = state.array.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
       );
     },
   },
