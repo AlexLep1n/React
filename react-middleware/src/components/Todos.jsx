@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTodos } from "../middlewares/AsyncThunkMiddleware";
+import { fetchTodos } from "../reducers/todosSlice";
 import { useEffect } from "react";
 
 export default function Todos() {
